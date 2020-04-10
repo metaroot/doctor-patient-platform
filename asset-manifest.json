@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/doctor-patient-platform-bd/static/css/main.3b306aa8.chunk.css",
+    "main.js": "/doctor-patient-platform-bd/static/js/main.4fa8794d.chunk.js",
+    "main.js.map": "/doctor-patient-platform-bd/static/js/main.4fa8794d.chunk.js.map",
+    "runtime-main.js": "/doctor-patient-platform-bd/static/js/runtime-main.2e527ada.js",
+    "runtime-main.js.map": "/doctor-patient-platform-bd/static/js/runtime-main.2e527ada.js.map",
+    "static/js/2.0dda4419.chunk.js": "/doctor-patient-platform-bd/static/js/2.0dda4419.chunk.js",
+    "static/js/2.0dda4419.chunk.js.map": "/doctor-patient-platform-bd/static/js/2.0dda4419.chunk.js.map",
+    "index.html": "/doctor-patient-platform-bd/index.html",
+    "precache-manifest.53852ced23393ddafa176da70686025f.js": "/doctor-patient-platform-bd/precache-manifest.53852ced23393ddafa176da70686025f.js",
+    "service-worker.js": "/doctor-patient-platform-bd/service-worker.js",
+    "static/css/main.3b306aa8.chunk.css.map": "/doctor-patient-platform-bd/static/css/main.3b306aa8.chunk.css.map",
+    "static/js/2.0dda4419.chunk.js.LICENSE.txt": "/doctor-patient-platform-bd/static/js/2.0dda4419.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/doctor-patient-platform-bd/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2e527ada.js",
+    "static/js/2.0dda4419.chunk.js",
+    "static/css/main.3b306aa8.chunk.css",
+    "static/js/main.4fa8794d.chunk.js"
+  ]
+}
