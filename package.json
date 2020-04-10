@@ -1,6 +1,6 @@
 {
-  "name": "doctor-patient-platform-bd",
-  "homepage": "https://metaroot.github.io/doctor-patient-platform-bd/",
+  "name": "doctor-patient-platform",
+  "homepage": "https://metaroot.github.io/doctor-patient-platform/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
