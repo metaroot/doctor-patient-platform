@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/Report.css';
+import Disease from './Disease.js'
 import { Text } from "@chakra-ui/core";
 import { useToast } from "@chakra-ui/core";
 import { Select } from "@chakra-ui/core";
@@ -35,54 +36,74 @@ function ToastExample() {
 }
 
 class Report extends Component {
-      render() {
-          return (
-              <div className="report-form">
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            entries: [],
+            sympSet: {
+                symp: '',
+                timeDuration: 1,
+                timeUnit: 'day',
+                med: ''
+            }
+        };
+        this.submitSymp = this.submitSymp.bind(this);
+    }
+
+    submitSymp(e) {
+        e.preventDefault();
+        let prevEntries = this.state.entries;
+
+        let unitSymp = {
+            symp: 'yo',
+            timeDuration: 5,
+            timeUnit: 'year',
+            med: 'napa'
+        }
+        
+        prevEntries.push(unitSymp);
+    
+        this.setState({
+          entries: prevEntries,
+          sympSet: {
+            symp: '',
+            timeDuration: 1,
+            timeUnit: 'day',
+            med: ''
+          }
+        });     
+    }
+    
+    render() {
+        return (
+            <div className="report-form">
                 <div className="make-report">
                     <p className="make-report-text">আপনার মেডিকেল রিপোর্ট তৈরি করুন</p>
                 </div>
-                <div className="symptom">
-                    <div className="symptom-text-div">
-                        <p className="symptom-text">রোগ:</p>
-                        <Select className="symptom-select" placeholder="রোগ নির্বাচন করুন">
-                            <option value="option1">জ্বর</option>
-                            <option value="option2">কাশি</option>
-                            <option value="option3">মাথাব্যথা</option>
-                        </Select>
-                    </div>
-                    
-                    <div className="duration-text-div">
-                        <p className="duration-text">সময়কাল:</p>
-                        <NumberInput className="number-input" defaultValue={1} min={1} max={366} width="100px">
-                            <NumberInputField />
-                            <NumberInputStepper>
-                                <NumberIncrementStepper />
-                                <NumberDecrementStepper />
-                            </NumberInputStepper>
-                        </NumberInput>
-                        <div className="duration">
-                            <Select className="duration-select" placeholder="দিন">
-                                <option value="option1">সময়</option>
-                                <option value="option2">সপ্তাহ</option>
-                                <option value="option3">মাস</option>
-                                <option value="option3">বছর</option>
-                            </Select>
-                        </div>
-                    </div>
-                    <div className="medicine-text-div">
-                        <p className="medicine-text">ওষুধ:</p>
-                        <Input placeholder="পূর্বে সেবনকৃত ওষুধ"/>
-                    </div>
+                <Disease/>
 
-                    <Button variantColor="yellow">আরো যোগ করুন</Button>
-
-                </div>
-                <div className="submit-button" style={{paddingTop: "20px"}}>
-                    <ToastExample/>
-                </div>     
-              </div>
-          )
-      }
+                {this.state.entries.map(() => (
+                    <Disease/>
+                ))}
+                
+                <div className="buttons" style={{paddingTop: "20px"}}>
+                    <div className="add-button" style={{paddingRight: "10px"}}>
+                        <Button 
+                            variantColor="yellow"
+                            onClick = {this.submitSymp}
+                        >
+                                আরো যোগ করুন
+                        </Button>
+                    </div>
+                    <div className="submit-button">
+                        <ToastExample/>
+                    </div> 
+                </div>       
+            </div>
+        )
+    }
 }
   
   export default Report
