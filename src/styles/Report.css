@@ -114,6 +114,16 @@
         font-size: 20px;
         padding-right: 10px;
     }
+
+    .delete-symp {
+        width: 50px;
+        padding-left: 20px;
+    }
+
+    .add-symp {
+        width: 50px;
+        padding-left: 20px;
+    }
     
 
 }
