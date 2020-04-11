@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/doctor-patient-platform/precache-manifest.1925801ba6c471db0d9568fdbf56e5da.js"
+  "/doctor-patient-platform/precache-manifest.443b088be3e158788a33385b19336c23.js"
 );
 
 self.addEventListener('message', (event) => {
