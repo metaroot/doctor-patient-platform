@@ -4,6 +4,7 @@ import { Text } from "@chakra-ui/core";
 import { useToast } from "@chakra-ui/core";
 import { Select } from "@chakra-ui/core";
 import { IconButton } from "@chakra-ui/core";
+import { Tag, TagIcon, TagLabel, TagCloseButton } from "@chakra-ui/core";
 import {
     NumberInput,
     NumberInputField,
@@ -83,7 +84,7 @@ class Report extends Component {
         return (
             <div className="report-form">
                 <div className="make-report" style={{display: 'flex'}}>
-                    <img className="iron-man" style={{paddingTop: "35px", paddingBottom:"10px", paddingRight: "20px", width: "70px"}} src="https://media0.giphy.com/media/7OEje1TMS7hCw/giphy.gif?cid=ecf05e472714886e80a908d2ae926c16fbb807cf8733e41a&rid=giphy.gif"></img>
+                    {/* <img className="iron-man" style={{paddingTop: "35px", paddingBottom:"10px", paddingRight: "20px", width: "70px"}} src="https://media0.giphy.com/media/7OEje1TMS7hCw/giphy.gif?cid=ecf05e472714886e80a908d2ae926c16fbb807cf8733e41a&rid=giphy.gif"></img> */}
                     <p className="make-report-text">আপনার মেডিকেল রিপোর্ট তৈরি করুন</p>
                 </div>
                     
@@ -91,40 +92,27 @@ class Report extends Component {
                     <div className="symptom">
                         <div className="symptom-text-div">
                             <p className="symptom-text">রোগ:</p>
-                            <Select
-                                className="symptom-select"
-                                placeholder={entry.symp}
-                                >
-                            </Select>
+                            <Tag variantColor="yellow">
+                                <TagLabel>{entry.symp}</TagLabel>
+                            </Tag>
                         </div>
                         
                         <div className="duration-text-div">
                             <p className="duration-text">সময়কাল:</p>
-                            <NumberInput
-                                className="number-input" 
-                                defaultValue={entry.timeDuration} 
-                                min={1} 
-                                max={366} 
-                                width="100px"
-                                >
-                                <NumberInputField />
-                                <NumberInputStepper>
-                                    <NumberIncrementStepper />
-                                    <NumberDecrementStepper />
-                                </NumberInputStepper>
-                            </NumberInput>
+                            <Tag variantColor="cyan">
+                                <TagLabel>{entry.timeDuration}</TagLabel>
+                            </Tag>
                             <div className="duration">
-                                <Select
-                                    placeholder={entry.timeUnit}
-                                    >
-                                </Select>
+                                <Tag variantColor="red">
+                                    <TagLabel>{entry.timeUnit}</TagLabel>
+                                </Tag>
                             </div>
                         </div>
                         <div className="medicine-text-div">
                             <p className="medicine-text">ওষুধ:</p>
-                            <Input
-                            placeholder={entry.prevMeds}
-                            />
+                            <Tag variantColor="green">
+                                <TagLabel>{entry.prevMeds}</TagLabel>
+                            </Tag>
                         </div>
                         <IconButton className="delete-symp" icon="delete" variantColor="yellow" onClick={() => this.deleteSymp(this.state.entries.indexOf(entry))} />
                     </div>    
