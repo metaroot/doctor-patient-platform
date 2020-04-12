@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/Report.css';
 import { Text } from "@chakra-ui/core";
+import  Navbar from './Navbar'
 import { useToast } from "@chakra-ui/core";
 import { Select } from "@chakra-ui/core";
 import { IconButton } from "@chakra-ui/core";
@@ -83,6 +84,7 @@ class Report extends Component {
     render() {
         return (
             <div className="report-form">
+                <Navbar/>
                 <div className="make-report" style={{display: 'flex'}}>
                     {/* <img className="iron-man" style={{paddingTop: "35px", paddingBottom:"10px", paddingRight: "20px", width: "70px"}} src="https://media0.giphy.com/media/7OEje1TMS7hCw/giphy.gif?cid=ecf05e472714886e80a908d2ae926c16fbb807cf8733e41a&rid=giphy.gif"></img> */}
                     <p className="make-report-text">আপনার মেডিকেল রিপোর্ট তৈরি করুন</p>
