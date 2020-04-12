@@ -6,17 +6,22 @@ import Report from './Report'
 import PatientHome from './PatientHome'
 import Prescriptions from './Prescriptions'
 import { ThemeProvider, CSSReset } from "@chakra-ui/core"
+import createHistory from 'history/createBrowserHistory';
+
 
 
 function App() {
+  const history = createHistory({
+    basename: process.env.PUBLIC_URL,
+  });
   return (
     <ThemeProvider>
       <CSSReset />
-      <Router>
+      <Router history={history}>
         <Switch>
-          <Route exact path="/doctor-patient-platform" component={PatientHome}/>
-          <Route exact path="/doctor-patient-platform/report" component={Report}/>
-          <Route exact path="/doctor-patient-platform/prescriptions" component={Prescriptions}/>
+          <Route path="/" component={PatientHome}/>
+          <Route path="/report" component={Report}/>
+          <Route path="/prescriptions" component={Prescriptions}/>
         </Switch>
     </Router>
     </ThemeProvider>
