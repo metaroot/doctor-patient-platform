@@ -14,9 +14,9 @@ function App() {
       <CSSReset />
       <Router>
         <Switch>
-          <Route exact path="/" component={PatientHome}/>
-          <Route exact path="/report" component={Report}/>
-          <Route exact path="/prescriptions" component={Prescriptions}/>
+          <Route exact path="/doctor-patient-platform" component={PatientHome}/>
+          <Route exact path="/doctor-patient-platform/report" component={Report}/>
+          <Route exact path="/doctor-patient-platform/prescriptions" component={Prescriptions}/>
         </Switch>
     </Router>
     </ThemeProvider>
