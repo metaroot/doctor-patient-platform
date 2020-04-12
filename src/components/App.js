@@ -3,6 +3,7 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import logo from '../logo.svg';
 import '../styles/App.css';
 import Report from './Report'
+import PatientHome from './PatientHome'
 import Prescriptions from './Prescriptions'
 import { ThemeProvider, CSSReset } from "@chakra-ui/core"
 
@@ -13,8 +14,9 @@ function App() {
       <CSSReset />
       <Router>
         <Switch>
-          <Route path="/report" component={Report}/>
-          <Route path="/prescriptions" component={Prescriptions}/>
+          <Route exact path="/" component={PatientHome}/>
+          <Route exact path="/report" component={Report}/>
+          <Route exact path="/prescriptions" component={Prescriptions}/>
         </Switch>
     </Router>
     </ThemeProvider>
