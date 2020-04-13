@@ -17,15 +17,15 @@ import { Link } from "@reach/router"
           return (
             <Breadcrumb className="navbar" bg="#FEFCBF" width="100%" height="100px" spacing="20px">
                 <BreadcrumbItem>
-                    <BreadcrumbLink className="link" color="#5F370E" href="/">সেবা সম্পর্কে</BreadcrumbLink>
+                    <BreadcrumbLink className="link" color="#5F370E" href={process.env.PUBLIC_URL + '/'}>সেবা সম্পর্কে</BreadcrumbLink>
                 </BreadcrumbItem>
 
                 <BreadcrumbItem>
-                    <BreadcrumbLink className="link" color="#5F370E" href="/prescriptions">প্রেসক্রিপশন সমূহ</BreadcrumbLink>
+                    <BreadcrumbLink className="link" color="#5F370E" href={process.env.PUBLIC_URL + "/prescriptions"}>প্রেসক্রিপশন সমূহ</BreadcrumbLink>
                 </BreadcrumbItem>
 
                 <BreadcrumbItem>
-                    <BreadcrumbLink className="link" color="#5F370E" href="/report">রিপোর্ট তৈরি করুন</BreadcrumbLink>
+                    <BreadcrumbLink className="link" color="#5F370E" href={process.env.PUBLIC_URL + "/report"}>রিপোর্ট তৈরি করুন</BreadcrumbLink>
                 </BreadcrumbItem>
 
                 <BreadcrumbItem>
