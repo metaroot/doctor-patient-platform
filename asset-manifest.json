@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/doctor-patient-platform/static/css/main.e7646a16.chunk.css",
-    "main.js": "/doctor-patient-platform/static/js/main.e4e41ac7.chunk.js",
-    "main.js.map": "/doctor-patient-platform/static/js/main.e4e41ac7.chunk.js.map",
+    "main.js": "/doctor-patient-platform/static/js/main.6f708f59.chunk.js",
+    "main.js.map": "/doctor-patient-platform/static/js/main.6f708f59.chunk.js.map",
     "runtime-main.js": "/doctor-patient-platform/static/js/runtime-main.afa2c73d.js",
     "runtime-main.js.map": "/doctor-patient-platform/static/js/runtime-main.afa2c73d.js.map",
-    "static/js/2.3d1e755e.chunk.js": "/doctor-patient-platform/static/js/2.3d1e755e.chunk.js",
-    "static/js/2.3d1e755e.chunk.js.map": "/doctor-patient-platform/static/js/2.3d1e755e.chunk.js.map",
+    "static/js/2.bf706acb.chunk.js": "/doctor-patient-platform/static/js/2.bf706acb.chunk.js",
+    "static/js/2.bf706acb.chunk.js.map": "/doctor-patient-platform/static/js/2.bf706acb.chunk.js.map",
     "index.html": "/doctor-patient-platform/index.html",
-    "precache-manifest.f726b2343d4f25e0615159bda56cf002.js": "/doctor-patient-platform/precache-manifest.f726b2343d4f25e0615159bda56cf002.js",
+    "precache-manifest.63b4b75e90df2b51488e465812f47b31.js": "/doctor-patient-platform/precache-manifest.63b4b75e90df2b51488e465812f47b31.js",
     "service-worker.js": "/doctor-patient-platform/service-worker.js",
     "static/css/main.e7646a16.chunk.css.map": "/doctor-patient-platform/static/css/main.e7646a16.chunk.css.map",
-    "static/js/2.3d1e755e.chunk.js.LICENSE.txt": "/doctor-patient-platform/static/js/2.3d1e755e.chunk.js.LICENSE.txt",
+    "static/js/2.bf706acb.chunk.js.LICENSE.txt": "/doctor-patient-platform/static/js/2.bf706acb.chunk.js.LICENSE.txt",
     "static/media/logo.svg": "/doctor-patient-platform/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.afa2c73d.js",
-    "static/js/2.3d1e755e.chunk.js",
+    "static/js/2.bf706acb.chunk.js",
     "static/css/main.e7646a16.chunk.css",
-    "static/js/main.e4e41ac7.chunk.js"
+    "static/js/main.6f708f59.chunk.js"
   ]
 }
