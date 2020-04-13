@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bf108deac5bdfc80b6711c2034aabf17",
+    "revision": "dc9905f2e06f73f2105acff63a554c47",
     "url": "/doctor-patient-platform/index.html"
   },
   {
-    "revision": "c57a0a868e6b130fe54e",
+    "revision": "c984bb916548980a28fc",
     "url": "/doctor-patient-platform/static/css/main.e7646a16.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/doctor-patient-platform/static/js/2.bf706acb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c57a0a868e6b130fe54e",
-    "url": "/doctor-patient-platform/static/js/main.ae6862f9.chunk.js"
+    "revision": "c984bb916548980a28fc",
+    "url": "/doctor-patient-platform/static/js/main.f85c75c3.chunk.js"
   },
   {
     "revision": "80b69752211eb5e1d79d",
