@@ -1,0 +1,11 @@
+.prescription {
+    padding-left: 30px;
+    padding-top: 40px;
+}   
+
+.prescriptions {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
