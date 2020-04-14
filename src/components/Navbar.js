@@ -21,11 +21,11 @@ import { Link } from "@reach/router"
                 </BreadcrumbItem>
 
                 <BreadcrumbItem>
-                    <BreadcrumbLink className="link" color="#5F370E" href={process.env.PUBLIC_URL + "/prescriptions"}>প্রেসক্রিপশন সমূহ</BreadcrumbLink>
+                    <BreadcrumbLink className="link" color="#5F370E" href={process.env.PUBLIC_URL + '/prescriptions'}>প্রেসক্রিপশন সমূহ</BreadcrumbLink>
                 </BreadcrumbItem>
 
                 <BreadcrumbItem>
-                    <BreadcrumbLink className="link" color="#5F370E" href={process.env.PUBLIC_URL + "/report"}>রিপোর্ট তৈরি করুন</BreadcrumbLink>
+                    <BreadcrumbLink className="link" color="#5F370E" href={process.env.PUBLIC_URL + '/report'}>রিপোর্ট তৈরি করুন</BreadcrumbLink>
                 </BreadcrumbItem>
 
                 <BreadcrumbItem>
