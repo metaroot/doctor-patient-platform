@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/doctor-patient-platform/static/css/main.e7646a16.chunk.css",
-    "main.js": "/doctor-patient-platform/static/js/main.daf79044.chunk.js",
-    "main.js.map": "/doctor-patient-platform/static/js/main.daf79044.chunk.js.map",
+    "main.js": "/doctor-patient-platform/static/js/main.16a5b58b.chunk.js",
+    "main.js.map": "/doctor-patient-platform/static/js/main.16a5b58b.chunk.js.map",
     "runtime-main.js": "/doctor-patient-platform/static/js/runtime-main.afa2c73d.js",
     "runtime-main.js.map": "/doctor-patient-platform/static/js/runtime-main.afa2c73d.js.map",
     "static/js/2.bf706acb.chunk.js": "/doctor-patient-platform/static/js/2.bf706acb.chunk.js",
     "static/js/2.bf706acb.chunk.js.map": "/doctor-patient-platform/static/js/2.bf706acb.chunk.js.map",
     "index.html": "/doctor-patient-platform/index.html",
-    "precache-manifest.8086140eb0503b8aa6521c085329115e.js": "/doctor-patient-platform/precache-manifest.8086140eb0503b8aa6521c085329115e.js",
+    "precache-manifest.9b1330f11a9b6ed32b66fec4f696fcfb.js": "/doctor-patient-platform/precache-manifest.9b1330f11a9b6ed32b66fec4f696fcfb.js",
     "service-worker.js": "/doctor-patient-platform/service-worker.js",
     "static/css/main.e7646a16.chunk.css.map": "/doctor-patient-platform/static/css/main.e7646a16.chunk.css.map",
     "static/js/2.bf706acb.chunk.js.LICENSE.txt": "/doctor-patient-platform/static/js/2.bf706acb.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.afa2c73d.js",
     "static/js/2.bf706acb.chunk.js",
     "static/css/main.e7646a16.chunk.css",
-    "static/js/main.daf79044.chunk.js"
+    "static/js/main.16a5b58b.chunk.js"
   ]
 }
