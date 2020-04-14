@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/doctor-patient-platform/static/css/main.e7646a16.chunk.css",
-    "main.js": "/doctor-patient-platform/static/js/main.d013b537.chunk.js",
-    "main.js.map": "/doctor-patient-platform/static/js/main.d013b537.chunk.js.map",
+    "main.css": "/doctor-patient-platform/static/css/main.6e524160.chunk.css",
+    "main.js": "/doctor-patient-platform/static/js/main.241d98fa.chunk.js",
+    "main.js.map": "/doctor-patient-platform/static/js/main.241d98fa.chunk.js.map",
     "runtime-main.js": "/doctor-patient-platform/static/js/runtime-main.afa2c73d.js",
     "runtime-main.js.map": "/doctor-patient-platform/static/js/runtime-main.afa2c73d.js.map",
-    "static/js/2.53353b4e.chunk.js": "/doctor-patient-platform/static/js/2.53353b4e.chunk.js",
-    "static/js/2.53353b4e.chunk.js.map": "/doctor-patient-platform/static/js/2.53353b4e.chunk.js.map",
+    "static/js/2.0ff7cdec.chunk.js": "/doctor-patient-platform/static/js/2.0ff7cdec.chunk.js",
+    "static/js/2.0ff7cdec.chunk.js.map": "/doctor-patient-platform/static/js/2.0ff7cdec.chunk.js.map",
     "index.html": "/doctor-patient-platform/index.html",
-    "precache-manifest.2001a1ee64a1598de73b460ca27ac341.js": "/doctor-patient-platform/precache-manifest.2001a1ee64a1598de73b460ca27ac341.js",
+    "precache-manifest.07b460737848c2c79dac31abb22e8e35.js": "/doctor-patient-platform/precache-manifest.07b460737848c2c79dac31abb22e8e35.js",
     "service-worker.js": "/doctor-patient-platform/service-worker.js",
-    "static/css/main.e7646a16.chunk.css.map": "/doctor-patient-platform/static/css/main.e7646a16.chunk.css.map",
-    "static/js/2.53353b4e.chunk.js.LICENSE.txt": "/doctor-patient-platform/static/js/2.53353b4e.chunk.js.LICENSE.txt",
+    "static/css/main.6e524160.chunk.css.map": "/doctor-patient-platform/static/css/main.6e524160.chunk.css.map",
+    "static/js/2.0ff7cdec.chunk.js.LICENSE.txt": "/doctor-patient-platform/static/js/2.0ff7cdec.chunk.js.LICENSE.txt",
     "static/media/logo.svg": "/doctor-patient-platform/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.afa2c73d.js",
-    "static/js/2.53353b4e.chunk.js",
-    "static/css/main.e7646a16.chunk.css",
-    "static/js/main.d013b537.chunk.js"
+    "static/js/2.0ff7cdec.chunk.js",
+    "static/css/main.6e524160.chunk.css",
+    "static/js/main.241d98fa.chunk.js"
   ]
 }
