@@ -11,19 +11,18 @@ import createHistory from 'history/createBrowserHistory';
 
 
 function App() {
-
   const history = createHistory({
     basename: process.env.PUBLIC_URL,
   });
-  
+
   return (
     <ThemeProvider>
       <CSSReset />
       <Router history={history} basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path='/' component={PatientHome}/>
-          <Route exact path='/report' component={Report}/>
-          <Route exact path='/prescriptions' component={Prescriptions}/>
+          <Route path='/report' component={Report}/>
+          <Route path='/prescriptions' component={Prescriptions}/>
         </Switch>
     </Router>
     </ThemeProvider>
