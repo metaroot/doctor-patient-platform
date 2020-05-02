@@ -3,12 +3,17 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "site": "swatontro-jote-healthcare",
-    "public": "public",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }

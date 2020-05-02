@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import '../styles/Report.css';
 import { Text } from "@chakra-ui/core";
 import  Navbar from './Navbar'
@@ -16,6 +16,8 @@ import {
 import { Flex } from "@chakra-ui/core";
 import { Input } from "@chakra-ui/core";
 import { Button } from "@chakra-ui/core";
+
+import firebase from '../firebase.js';
 
 function ToastExample() {
     const toast = useToast();
@@ -37,22 +39,22 @@ function ToastExample() {
     );
 }
 
-class Report extends Component {
+function Report() {
 
-    constructor(props) {
-        super(props);
+    const [entries, setEntries] = useState([]);
+    const [symp, setSymp] = useState('');
+    const [timeDuration, setTimeDuration] = useState(1);
+    const [timeUnit, setTimeUnit] = useState('');
+    const [prevMeds, setPrevMeds] = useState('');
 
-        this.state = {
-            entries: [],
-            symp: '',
-            timeDuration: 1,
-            timeUnit: '',
-            prevMeds: '',
-        };
-        this.submitSymp = this.submitSymp.bind(this);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const reportRef = firebase.database().ref('reports');
+        reportRef.push(this.state.entries);
+        this.setState({entries: []})
     }
 
-    submitSymp(e) {
+    const submitSymp = (e) => {
         e.preventDefault();
         const entry = {
             symp: this.state.symp,
@@ -64,16 +66,14 @@ class Report extends Component {
 
         prevEntries.push(entry);
         
-        this.setState({
-            symp: '',
-            timeDuration: 1,
-            timeUnit: '',
-            prevMeds: '',
-            entries:  prevEntries
-        })     
+        setSymp('');
+        setTimeDuration(1);
+        setTimeUnit('');
+        setPrevMeds('');
+        setEntries(prevEntries);     
     }
 
-    deleteSymp(id) {
+    const deleteSymp = (id) => {
         let currentEntries = this.state.entries
         currentEntries.splice(id, 1)
         this.setState({
@@ -81,108 +81,112 @@ class Report extends Component {
         })
     }
     
-    render() {
-        return (
-            <div className="report-form">
-                <Navbar/>
-                <div className="make-report" style={{display: 'flex'}}>
-                    {/* <img className="iron-man" style={{paddingTop: "35px", paddingBottom:"10px", paddingRight: "20px", width: "70px"}} src="https://media0.giphy.com/media/7OEje1TMS7hCw/giphy.gif?cid=ecf05e472714886e80a908d2ae926c16fbb807cf8733e41a&rid=giphy.gif"></img> */}
-                    <p className="make-report-text">আপনার মেডিকেল রিপোর্ট তৈরি করুন</p>
-                </div>
-                    
-                {this.state.entries ? (this.state.entries.map((entry) => (
-                    <div className="symptom">
-                        <div className="symptom-text-div">
-                            <p className="symptom-text">রোগ:</p>
-                            <Tag variantColor="yellow">
-                                <TagLabel>{entry.symp}</TagLabel>
-                            </Tag>
-                        </div>
-                        
-                        <div className="duration-text-div">
-                            <p className="duration-text">সময়কাল:</p>
-                            <Tag variantColor="cyan">
-                                <TagLabel>{entry.timeDuration}</TagLabel>
-                            </Tag>
-                            <div className="duration">
-                                <Tag variantColor="red">
-                                    <TagLabel>{entry.timeUnit}</TagLabel>
-                                </Tag>
-                            </div>
-                        </div>
-                        <div className="medicine-text-div">
-                            <p className="medicine-text">ওষুধ:</p>
-                            <Tag variantColor="green">
-                                <TagLabel>{entry.prevMeds}</TagLabel>
-                            </Tag>
-                        </div>
-                        <IconButton className="delete-symp" icon="delete" variantColor="yellow" onClick={() => this.deleteSymp(this.state.entries.indexOf(entry))} />
-                    </div>    
-                ))) : (
-                    <div />
-                )}
-
+    
+    return (
+        <div className="report-form">
+            <Navbar/>
+            <div className="make-report" style={{display: 'flex'}}>
+                {/* <img className="iron-man" style={{paddingTop: "35px", paddingBottom:"10px", paddingRight: "20px", width: "70px"}} src="https://media0.giphy.com/media/7OEje1TMS7hCw/giphy.gif?cid=ecf05e472714886e80a908d2ae926c16fbb807cf8733e41a&rid=giphy.gif"></img> */}
+                <p className="make-report-text">আপনার মেডিকেল রিপোর্ট তৈরি করুন</p>
+            </div>
+                
+            {entries ? (entries.map((entry) => (
                 <div className="symptom">
                     <div className="symptom-text-div">
                         <p className="symptom-text">রোগ:</p>
-                        <Select
-                        className="symptom-select"
-                        placeholder="রোগ নির্বাচন করুন"
-                        onChange={e => this.setState({ symp: e.target.value })}
-                        >
-                            <option value="জ্বর">জ্বর</option>
-                            <option value="কাশি">কাশি</option>
-                            <option value="মাথাব্যথা">মাথাব্যথা</option>
-                        </Select>
+                        <Tag variantColor="yellow">
+                            <TagLabel>{entry.symp}</TagLabel>
+                        </Tag>
                     </div>
                     
                     <div className="duration-text-div">
                         <p className="duration-text">সময়কাল:</p>
-                        <NumberInput
-                        className="number-input" 
-                        defaultValue={1} 
-                        min={1} 
-                        max={366} 
-                        width="100px"
-                        onChange={value => this.setState({timeDuration: value})}
-                        >
-                            <NumberInputField />
-                            <NumberInputStepper>
-                                <NumberIncrementStepper />
-                                <NumberDecrementStepper />
-                            </NumberInputStepper>
-                        </NumberInput>
+                        <Tag variantColor="cyan">
+                            <TagLabel>{entry.timeDuration}</TagLabel>
+                        </Tag>
                         <div className="duration">
-                            <Select
-                            className="duration-select" 
-                            placeholder="সময়কাল"
-                            onChange={e => this.setState({ timeUnit: e.target.value })}
-                            >
-                                <option value="দিন">দিন</option>
-                                <option value="সপ্তাহ">সপ্তাহ</option>
-                                <option value="মাস">মাস</option>
-                                <option value="year">বছর</option>
-                            </Select>
+                            <Tag variantColor="red">
+                                <TagLabel>{entry.timeUnit}</TagLabel>
+                            </Tag>
                         </div>
                     </div>
                     <div className="medicine-text-div">
                         <p className="medicine-text">ওষুধ:</p>
-                        <Input
-                        placeholder="পূর্বে সেবনকৃত ওষুধ"
-                        onChange={e => this.setState({ prevMeds: e.target.value })}
-                        />
+                        <Tag variantColor="green">
+                            <TagLabel>{entry.prevMeds}</TagLabel>
+                        </Tag>
                     </div>
-                    <IconButton className="add-symp" icon="add" variantColor="yellow" onClick={this.submitSymp}/>
+                    <IconButton className="delete-symp" icon="delete" variantColor="yellow" onClick={() => deleteSymp(entries.indexOf(entry))} />
+                </div>    
+            ))) : (
+                <div />
+            )}
+
+            <div className="symptom">
+                <div className="symptom-text-div">
+                    <p className="symptom-text">রোগ:</p>
+                    <Select
+                    className="symptom-select"
+                    placeholder="রোগ নির্বাচন করুন"
+                    onChange={e => setSymp(e.target.value)}
+                    >
+                        <option value="জ্বর">জ্বর</option>
+                        <option value="কাশি">কাশি</option>
+                        <option value="মাথাব্যথা">মাথাব্যথা</option>
+                    </Select>
                 </div>
                 
-                <div className="buttons" style={{paddingTop: "20px"}}>
-                    <div className="submit-button">
-                        <ToastExample/>
-                    </div> 
-                </div>       
+                <div className="duration-text-div">
+                    <p className="duration-text">সময়কাল:</p>
+                    <NumberInput
+                    className="number-input" 
+                    defaultValue={1} 
+                    min={1} 
+                    max={366} 
+                    width="100px"
+                    onChange={value => setTimeDuration(value)}
+                    >
+                        <NumberInputField />
+                        <NumberInputStepper>
+                            <NumberIncrementStepper />
+                            <NumberDecrementStepper />
+                        </NumberInputStepper>
+                    </NumberInput>
+                    <div className="duration">
+                        <Select
+                        className="duration-select" 
+                        placeholder="সময়কাল"
+                        onChange={e => setTimeUnit(e.target.value)}
+                        >
+                            <option value="দিন">দিন</option>
+                            <option value="সপ্তাহ">সপ্তাহ</option>
+                            <option value="মাস">মাস</option>
+                            <option value="year">বছর</option>
+                        </Select>
+                    </div>
+                </div>
+                <div className="medicine-text-div">
+                    <p className="medicine-text">ওষুধ:</p>
+                    <Input
+                    placeholder="পূর্বে সেবনকৃত ওষুধ"
+                    onChange={e => setPrevMeds(e.target.value)}
+                    />
+                </div>
+                <IconButton className="add-symp" icon="add" variantColor="yellow" onClick={submitSymp}/>
             </div>
-        )
-    }
+            
+            <div className="buttons" style={{paddingTop: "20px"}}>
+                <div className="submit-button">
+                    <Button
+                        variantColor="yellow"
+                        onClick={handleSubmit}
+                    >
+                        প্রেরণ করুন
+                    </Button>    
+                </div> 
+            </div>       
+        </div>
+    )
 }
   
   export default Report
