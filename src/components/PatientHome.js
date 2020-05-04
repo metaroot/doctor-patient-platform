@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import '../styles/PatientHome.css';
 import { Text } from "@chakra-ui/core";
 import  Navbar from './Navbar'
 import { Stack, Box, Heading } from "@chakra-ui/core";
 import { useHistory, withRouter } from "react-router-dom";
+import AuthContext from './App'
 
 
 function Feature({ title, desc, ...rest }) {

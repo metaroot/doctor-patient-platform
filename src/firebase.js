@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-const firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyBPXHR7mzmPzBQA6Ga9755CCbcCvyRGh0c",
     authDomain: "doctor-patient-platform-269c8.firebaseapp.com",
     databaseURL: "https://doctor-patient-platform-269c8.firebaseio.com",

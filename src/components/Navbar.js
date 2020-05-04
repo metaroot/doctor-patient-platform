@@ -4,7 +4,7 @@ import {
     BreadcrumbLink,
     BreadcrumbSeparator,
   } from "@chakra-ui/core";
-import React, { Component, useContext} from 'react';
+import React, { Component, useContext, useState, useEffect} from 'react';
 import '../styles/Navbar.css';
 import Report from './Report'
 import Prescriptions from './Prescriptions'
@@ -13,11 +13,25 @@ import LoginPage from './LoginPage'
 import { Button } from "@chakra-ui/core";
 import { Redirect, useHistory, withRouter } from 'react-router-dom';
 import firebase, { auth, provider } from '../firebase.js';
+import { AuthContext }  from './App'
 
-const Navbar = ({history}) => {
-    //const history = useHistory();
+const Navbar = () => {
+    const Auth = useContext(AuthContext);
+    const setLoggedIn = Auth.setLoggedIn || {};
+    const isLoggedIn = Auth.isLoggedIn;
+    const user = Auth.user;
+    const setUser = Auth.setUser;
+
+    const history = useHistory();
+
+
     const handleLogout = () => {
-        auth.signOut().then(history.push('/')); 
+        auth.signOut().then(() => {
+            setLoggedIn(false);
+            setUser(null);
+            history.push('/');
+            //console.log(isLoggedIn);
+        }); 
     }
     return (
         <Breadcrumb className="navbar" bg="#FEFCBF" width="100%" height="100px" spacing="20px">

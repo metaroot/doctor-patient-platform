@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect, useContext } from 'react';
 import '../styles/PatientHome.css';
+import { AuthContext } from './App'
 import { Text } from "@chakra-ui/core";
 import '../styles/Navbar.css';
 import { Stack, Box, Heading } from "@chakra-ui/core";
@@ -16,6 +17,8 @@ import {
     BreadcrumbSeparator,
 } from "@chakra-ui/core";
 import Navbar from './Navbar';
+
+
 
 function Feature({ title, desc, ...rest }) {
     return (
@@ -39,38 +42,44 @@ function StackEx() {
     );
 }
 
-const LoginPage =() => {
-    const [user, setUser] = useState(null);
-    const [loggedIn, setLoggedIn] = useState(false);
-    
+const LoginPage =({history}) => {
+    const Auth = useContext(AuthContext);
+    const setLoggedIn = Auth.setLoggedIn;
+    const isLoggedIn = Auth.isLoggedIn;
+    const setUser = Auth.setUser;
+    const user = Auth.user;
 
     useEffect(() => {
+        
         auth.onAuthStateChanged((user) => {
             if(user) {
-                setUser(user)
+                setUser(user);
+                console.log(user);
+                setLoggedIn(true);
             }
         })
     }, []);
 
-    const login  = ({history}) => {
-        auth.signInWithRedirect(provider) 
+    const login  = () => {
+        auth.signInWithRedirect(provider)
           .then((result) => {
+            console.log("yo I'm inside then now");
             const user = result.user;
             setUser(user);
-            console.log(result)
+            if(user) setLoggedIn(true);
             auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
             history.push('/home');
         });
     }
 
-    if (user) return <Redirect to="/home" />;
+    if (isLoggedIn) return <Redirect to="/home" />;
     
     return (
         <>
-            {!user && <Breadcrumb className="navbar" bg="#FEFCBF" width="100%" height="100px" spacing="20px">
+            {!isLoggedIn && <Breadcrumb className="navbar" bg="#FEFCBF" width="100%" height="100px" spacing="20px">
                 <Button onClick={login} variantColor="yellow">Log In</Button>
             </Breadcrumb>}
-            {user && <Navbar />}
+            {isLoggedIn && <Navbar />}
             <StackEx/>
         </>
     )
