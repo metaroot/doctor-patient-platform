@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useContext } from 'react';
 import '../styles/Report.css';
 import { Text } from "@chakra-ui/core";
 import  Navbar from './Navbar'
@@ -18,6 +18,9 @@ import { Input } from "@chakra-ui/core";
 import { Button } from "@chakra-ui/core";
 
 import firebase from '../firebase.js';
+
+import { AuthContext } from './App'
+
 
 function ToastExample() {
     const toast = useToast();
@@ -40,6 +43,8 @@ function ToastExample() {
 }
 
 function Report() {
+    const Auth = useContext(AuthContext);
+    const user = Auth.user;
 
     const [entries, setEntries] = useState([]);
     const [symp, setSymp] = useState('');
@@ -50,19 +55,20 @@ function Report() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const reportRef = firebase.database().ref('reports');
-        reportRef.push(this.state.entries);
-        this.setState({entries: []})
-    }
+        reportRef.push(entries);
+        reportRef.push(user.uid);
+        setEntries([]);
+    }    
 
     const submitSymp = (e) => {
         e.preventDefault();
         const entry = {
-            symp: this.state.symp,
-            timeDuration: this.state.timeDuration,
-            timeUnit: this.state.timeUnit,
-            prevMeds: this.state.prevMeds
+            symp: symp,
+            timeDuration: timeDuration,
+            timeUnit: timeUnit,
+            prevMeds: prevMeds
         }
-        let prevEntries = this.state.entries
+        let prevEntries = entries;
 
         prevEntries.push(entry);
         
@@ -74,11 +80,9 @@ function Report() {
     }
 
     const deleteSymp = (id) => {
-        let currentEntries = this.state.entries
+        let currentEntries = entries
         currentEntries.splice(id, 1)
-        this.setState({
-            entries: currentEntries
-        })
+        setEntries(currentEntries);
     }
     
     
